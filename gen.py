@@ -93,7 +93,7 @@ def work():
         #    mobile_button.click()
         # except:
         #    pass
-        
+
         # if fails (ay changed something) take input from the user
         register = WebDriverWait(driver, 3, 0.3).until(
             lambda d: d.find_element_by_xpath("/html/body/main/div[2]/header/div/div[1]/div[3]/ul/li[3]/div/a"))
@@ -104,20 +104,14 @@ def work():
         first_name.clear()
         first_name.send_keys(firstName)
         #slow_type(first_name, firstName)
-        
+
         # input[data-testid="RadioButtonMale"]
-        
-        maleInput = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
-            '//input[@data-testid="RadioButtonMale"]'))
-        maleInput.click()
 
         last_name = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
             "/html/body/div[3]/div/div/div/div/div[2]/div[2]/form/div[1]/div[2]/label/input"))
         last_name.clear()
         last_name.send_keys(lastName)
         #slow_type(last_name, lastName)
-        
-        
 
         email_address = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
             "/html/body/div[3]/div/div/div/div/div[2]/div[2]/form/div[2]/div[1]/label/input"))
@@ -133,7 +127,7 @@ def work():
 
         time.sleep(0.5)
         preferences = WebDriverWait(driver, 3, 0.1).until(lambda d: d.find_element_by_xpath(
-            "/html/body/div[3]/div/div/div/div/div[2]/div[2]/form/div[3]/fieldset/div/label[1]/div"))
+            '//*[@id="modal-root"]/div/div/div/div/div[2]/div[2]/form/div[3]/fieldset/div/label[2]/div'))
         preferences.click()
 
         time.sleep(0.5)
@@ -182,7 +176,6 @@ def work():
                 embed.add_embed_field(name='⏰Time', value=str(creating_time))
                 webhook.add_embed(embed)
                 response = webhook.execute()
-            
 
         driver.quit()
 
