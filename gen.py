@@ -104,12 +104,20 @@ def work():
         first_name.clear()
         first_name.send_keys(firstName)
         #slow_type(first_name, firstName)
+        
+        # input[data-testid="RadioButtonMale"]
+        
+        maleInput = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
+            '//input[@data-testid="RadioButtonMale"]'))
+        maleInput.click()
 
         last_name = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
             "/html/body/div[3]/div/div/div/div/div[2]/div[2]/form/div[1]/div[2]/label/input"))
         last_name.clear()
         last_name.send_keys(lastName)
         #slow_type(last_name, lastName)
+        
+        
 
         email_address = WebDriverWait(driver, 3, 0.3).until(lambda d: d.find_element_by_xpath(
             "/html/body/div[3]/div/div/div/div/div[2]/div[2]/form/div[2]/div[1]/label/input"))
